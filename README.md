@@ -22,6 +22,9 @@ The repository contains the following project submission materials:
 ```text
 BAI31113_Project1_AngXuanLing/
 │
+├── BAI31113_Project1_AngXuanLing_LogBook.pdf
+│   └── Project I log book.
+│
 ├── BAI31113_Project1_AngXuanLing_PPT.pdf
 │   └── Project presentation slides.
 │
