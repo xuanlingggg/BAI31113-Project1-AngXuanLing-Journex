@@ -26,7 +26,7 @@ BAI31113_Project1_AngXuanLing/
 │   └── Project presentation slides.
 │
 ├── BAI31113_Project1_AngXuanLing_Report.docx
-│   └── Editable FYP Project I report.
+│   └── Final report in docx format.
 │
 ├── BAI31113_Project1_AngXuanLing_Report.pdf
 │   └── Final report in PDF format.
@@ -35,5 +35,5 @@ BAI31113_Project1_AngXuanLing/
 │   └── Video demonstration of the Journex system.
 │
 └── BAI31113_Project1_AngXuanLing_SourceCode_Journex/
-    └── V9 source code and related project files.
+    └── Project 1 source code and related project files.
 ```
