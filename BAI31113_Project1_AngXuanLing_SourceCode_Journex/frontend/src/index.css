@@ -1,0 +1,920 @@
+:root {
+  /* =========================================================================
+     Core Design System & Color Tokens (Modern SaaS Financial Dashboard)
+     ========================================================================= */
+  --color-primary: #2563EB;
+  --primary-color: #2563EB;
+  --color-primary-hover: #1D4ED8;
+  --primary-hover: #1D4ED8;
+  --badge-bank-bg: #E5F5F7;
+  --badge-bank-text: #147D8C;
+  --badge-doc-bg: #EFF6FF;
+  --badge-doc-text: #2563EB;
+  --bg-primary: #F8FAFC;
+  --bg-secondary: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --card-bg: #FFFFFF;
+  --bg-card-hover: #F8FAFC;
+  --bg-surface: #F1F5F9;
+  --text-primary: #0F172A;
+  --text-secondary: #64748B;
+  --text-muted: #94A3B8;
+  --border-color: #E2E8F0;
+  --border-highlight: #CBD5E1;
+
+  /* Semantic Status Tokens */
+  --status-success-text: #15803D;
+  --status-success-bg: #DCFCE7;
+  --status-success-border: #BBF7D0;
+
+  --status-warning-text: #B45309;
+  --status-warning-bg: #FEF3C7;
+  --status-warning-border: #FDE68A;
+
+  --status-error-text: #B91C1C;
+  --status-error-bg: #FEE2E2;
+  --status-error-border: #FECACA;
+
+  --status-neutral-text: #475569;
+  --status-neutral-bg: #F1F5F9;
+  --status-neutral-border: #E2E8F0;
+
+  --status-info-text: #2563EB;
+  --status-info-bg: #EFF6FF;
+  --status-info-border: #BFDBFE;
+
+  /* Bank Identification Tokens */
+  --record-bank-bg: #E5F5F7;
+  --record-bank-text: #147D8C;
+  --record-bank-border: rgba(20, 125, 140, 0.35);
+  --record-bank-icon: #147D8C;
+  --record-bank-accent: #147D8C;
+  --record-bank-badge-bg: #E5F5F7;
+  --record-bank-badge-text: #147D8C;
+  --record-bank-number: #147D8C;
+
+  /* Accounting Document Tokens */
+  --record-doc-bg: #EFF6FF;
+  --record-doc-text: #2563EB;
+  --record-doc-border: #BFDBFE;
+  --record-doc-icon: #2563EB;
+
+  /* Legacy Token Mappings for Compatibility */
+  --accent-primary: #2563EB;
+  --accent-hover: #1D4ED8;
+  --status-uploaded-bg: #F1F5F9;
+  --status-uploaded-text: #475569;
+  --status-processing-bg: #FEF3C7;
+  --status-processing-text: #B45309;
+  --status-extracted-bg: #EFF6FF;
+  --status-extracted-text: #2563EB;
+  --status-error-bg: #FEE2E2;
+  --status-error-text: #B91C1C;
+  --status-completed-bg: #DCFCE7;
+  --status-completed-text: #15803D;
+
+  /* Typography Stack */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-highlight);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Main Layout Grid */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+}
+
+.sidebar {
+  width: 250px;
+  background-color: var(--bg-secondary);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 1rem;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background-color: var(--bg-primary);
+}
+
+/* Sidebar Elements */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.brand-icon {
+  width: 34px;
+  height: 34px;
+  background-color: var(--color-primary);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+.brand-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.nav-section-title {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  margin: 1.25rem 0.5rem 0.5rem 0.5rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.85rem;
+  color: var(--text-secondary);
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.15s ease;
+  margin-bottom: 0.2rem;
+}
+
+.nav-link:hover {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.nav-link.active {
+  background-color: #EFF6FF;
+  color: var(--color-primary);
+  font-weight: 600;
+  border-left: 3px solid var(--color-primary);
+}
+
+.nav-badge {
+  margin-left: auto;
+  font-size: 0.65rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  background-color: var(--bg-surface);
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.nav-badge.live {
+  background-color: var(--status-success-bg);
+  color: var(--status-success-text);
+  border: 1px solid var(--status-success-border);
+}
+
+/* Header */
+.top-navbar {
+  height: 64px;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.75rem;
+}
+
+.page-title-group h1 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.page-title-group p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* Content Container */
+.page-container {
+  padding: 1.75rem;
+  flex: 1;
+}
+
+/* Cards & Components */
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+}
+
+/* Table Styles */
+.table-container {
+  overflow-x: auto;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.custom-table, .table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+.custom-table th, .table th {
+  background-color: var(--bg-primary);
+  color: var(--text-secondary);
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.75rem;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.custom-table td, .table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+  vertical-align: middle;
+}
+
+.custom-table tr:hover td, .table tr:hover td {
+  background-color: var(--bg-card-hover);
+}
+
+/* Cash Book Table & Monetary Amounts */
+.cash-book-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.cash-book-table td.amount-cell,
+.cash-book-amount {
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: #0F172A;
+  font-weight: 600;
+}
+
+.cash-book-table td.amount-cell.is-empty,
+.cash-book-amount.is-empty {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.cash-book-table tfoot td.total-label {
+  text-align: right;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #0F172A;
+  font-size: 0.78rem;
+}
+
+.cash-book-table tfoot td.total-amount,
+.cash-book-total-amount {
+  text-align: right;
+  font-weight: 700;
+  color: #0F172A;
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+}
+
+.doc-id-pill {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--color-primary);
+  background-color: var(--status-info-bg);
+  border: 1px solid var(--status-info-border);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+  font-size: 0.78rem;
+}
+
+.doc-id-pill.doc-pill-bank {
+  background-color: #EFF6FF;
+  color: #1D4ED8;
+  border: 1px solid #BFDBFE;
+}
+
+.doc-id-pill.doc-pill-doc {
+  background-color: #FAF5FF;
+  color: #7E22CE;
+  border: 1px solid #E9D5FF;
+}
+
+/* Standardized Status Badges */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  line-height: 1.2;
+}
+
+/* Success: Green */
+.status-badge.EXTRACTED,
+.status-badge.MATCHED,
+.status-badge.POSTED,
+.status-badge.SUCCESS,
+.status-badge.APPROVED,
+.status-badge.RUNNING,
+.status-badge.CONNECTED,
+.status-badge.COMPLETED {
+  background-color: var(--status-success-bg);
+  color: var(--status-success-text);
+  border: 1px solid var(--status-success-border);
+}
+
+/* Info / Validated: Subtle Blue */
+.status-badge.VALIDATED,
+.status-badge.CONFIRMED {
+  background-color: var(--status-info-bg);
+  color: var(--status-info-text);
+  border: 1px solid var(--status-info-border);
+}
+
+/* Warning / Review: Amber */
+.status-badge.NEEDS_REVIEW,
+.status-badge.PENDING_APPROVAL,
+.status-badge.PENDING_AUDIT,
+.status-badge.HUMAN_REVIEW,
+.status-badge.PROCESSING {
+  background-color: var(--status-warning-bg);
+  color: var(--status-warning-text);
+  border: 1px solid var(--status-warning-border);
+}
+
+/* Error / Failed: Red */
+.status-badge.ERROR,
+.status-badge.FAILED {
+  background-color: var(--status-error-bg);
+  color: var(--status-error-text);
+  border: 1px solid var(--status-error-border);
+}
+
+/* Neutral: Slate Grey */
+.status-badge.UNMATCHED,
+.status-badge.STOPPED,
+.status-badge.INACTIVE,
+.status-badge.UPLOADED {
+  background-color: var(--status-neutral-bg);
+  color: var(--status-neutral-text);
+  border: 1px solid var(--status-neutral-border);
+}
+
+/* Bank Identification Badge (Blue Badge) */
+.badge-record-bank {
+  background-color: #EFF6FF;
+  color: #1D4ED8;
+  border: 1px solid #BFDBFE;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.status-badge.RECONCILIATION_PENDING,
+.status-badge.BANK_FEED {
+  background-color: var(--record-bank-bg);
+  color: var(--record-bank-text);
+  border: 1px solid var(--record-bank-border);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* Company Setup Document Badge (Blue Badge) */
+.badge-record-setup {
+  background-color: rgba(37, 99, 235, 0.1);
+  color: #2563eb;
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* Accounting Document Identification Badge */
+.badge-record-doc {
+  background-color: #FAF5FF;
+  color: #7E22CE;
+  border: 1px solid #E9D5FF;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* Bank Source Pill */
+.badge-bank-source {
+  background-color: var(--record-bank-bg);
+  color: var(--record-bank-text);
+  border: 1px solid var(--record-bank-border);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* Standardized Button System */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+  line-height: 1.25;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Primary Button: Blue background with white text */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border-color: var(--color-primary);
+}
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+
+/* Secondary Button: White background with grey border and dark text */
+.btn-secondary {
+  background-color: #FFFFFF;
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--bg-primary);
+  border-color: var(--border-highlight);
+}
+
+/* Ghost Button: Transparent background with subtle hover */
+.btn-ghost {
+  background-color: transparent;
+  color: var(--text-secondary);
+  border-color: transparent;
+}
+.btn-ghost:hover:not(:disabled) {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+/* Danger Button: Red styling for destructive actions */
+.btn-danger {
+  background-color: var(--status-error-bg);
+  color: var(--status-error-text);
+  border-color: var(--status-error-border);
+}
+.btn-danger:hover:not(:disabled) {
+  background-color: #FCA5A5;
+  color: #7F1D1D;
+}
+
+.btn-sm {
+  padding: 0.3rem 0.65rem;
+  font-size: 0.78rem;
+}
+
+/* Standardized Form Controls */
+input, select, textarea, .form-control {
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-highlight);
+  border-radius: 6px;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input:focus, select:focus, textarea:focus, .form-control:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+/* Modal Overlay & Container */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1.5rem;
+}
+
+.modal-content {
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.modal-content-large {
+  max-width: 1250px;
+  height: 88vh;
+}
+
+.modal-header {
+  padding: 1.1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #FFFFFF;
+}
+
+.modal-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+  background-color: #FFFFFF;
+}
+
+/* Side-by-Side Modal Layout */
+.side-by-side-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  height: 100%;
+}
+
+.preview-pane {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.preview-header {
+  padding: 0.75rem 1rem;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.preview-frame {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: #FFFFFF;
+}
+
+.data-pane {
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.25rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.field-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.field-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.65rem 0.85rem;
+}
+
+.field-label {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.3px;
+}
+
+.field-value {
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* Dropzone Upload */
+.upload-dropzone {
+  border: 2px dashed var(--border-color);
+  border-radius: 10px;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: var(--bg-primary);
+}
+
+.upload-dropzone:hover {
+  border-color: var(--color-primary);
+  background-color: #EFF6FF;
+}
+
+/* Code View */
+.raw-json-block {
+  background-color: #F8FAFC;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: #0F172A;
+  overflow-x: auto;
+  max-height: 250px;
+}
+
+/* Utility Animations */
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+/* =========================================================================
+   MFRS 101 Statutory Financial Reporting - Print & PDF Export Styles
+   Enforces clean statutory statement printing without chrome or navigation
+   ========================================================================= */
+@page {
+  size: A4 portrait;
+  margin: 14mm 12mm 16mm 12mm;
+}
+
+@media print {
+  /* Suppress default browser link URLs */
+  a[href]:after {
+    content: none !important;
+  }
+
+  /* Reset HTML and Body for multi-page flow without cutoffs */
+  html, body {
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 9pt !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Break flex/grid ancestor constraints to allow natural multi-page pagination */
+  .app-container,
+  .main-content,
+  .page-container {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    border: none !important;
+  }
+
+  /* Strictly hide all chrome, navigation, headers, and interactive UI */
+  aside,
+  header,
+  nav,
+  .sidebar,
+  .top-navbar,
+  .no-print,
+  button,
+  .btn,
+  .page-title-group,
+  .brand-logo,
+  .upload-dropzone {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Printable Report Document Card */
+  .mfrs-report-card {
+    box-shadow: none !important;
+    border: 1.5pt solid #0f172a !important;
+    border-radius: 0 !important;
+    margin: 0 0 24pt 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+    width: 100% !important;
+  }
+
+  /* Page Break between Statements in Full Package */
+  .mfrs-page-break {
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+
+  /* Statutory Document Identification Header (MFRS 101.51) */
+  .mfrs-report-header {
+    background-color: #f8fafc !important;
+    border-bottom: 2pt solid #0f172a !important;
+    padding: 14pt 18pt !important;
+    text-align: center !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .mfrs-report-header * {
+    color: #0f172a !important;
+  }
+
+  /* Table structure */
+  .mfrs-table-wrapper {
+    overflow: visible !important;
+    width: 100% !important;
+  }
+
+  .mfrs-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    font-size: 8.5pt !important;
+    page-break-inside: auto !important;
+  }
+
+  .mfrs-table thead {
+    display: table-header-group !important;
+  }
+
+  .mfrs-table tr {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .mfrs-table th {
+    background-color: #f1f5f9 !important;
+    color: #0f172a !important;
+    border-bottom: 1.5pt solid #0f172a !important;
+    padding: 5pt 8pt !important;
+    font-weight: 700 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .mfrs-table td {
+    padding: 4pt 8pt !important;
+    color: #0f172a !important;
+  }
+
+  .mfrs-section-header {
+    background-color: #f1f5f9 !important;
+    color: #0f172a !important;
+    font-weight: 800 !important;
+    border-top: 1pt solid #cbd5e1 !important;
+    border-bottom: 1pt solid #cbd5e1 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .mfrs-subtotal-row {
+    background-color: #f8fafc !important;
+    border-top: 1pt solid #0f172a !important;
+    border-bottom: 1pt solid #0f172a !important;
+    font-weight: 700 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .mfrs-grandtotal-row {
+    border-top: 2pt solid #0f172a !important;
+    border-bottom: 3.5pt double #0f172a !important;
+    font-weight: 800 !important;
+    background-color: #f8fafc !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .mfrs-report-footer {
+    background-color: #f8fafc !important;
+    border-top: 1pt solid #cbd5e1 !important;
+    padding: 8pt 12pt !important;
+    font-size: 7.5pt !important;
+    color: #475569 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

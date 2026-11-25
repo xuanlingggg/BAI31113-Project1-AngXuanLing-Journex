@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+credentials.json
+token.json
+*token*.json
+*client_secret*.json
+backend/credentials/
+credentials/
+
+# Database
+*.db
+*.db-shm
+*.db-wal
+*.db.backup
+*.db.bak*
+*.sqlite
+*.sqlite3
+backend/backups/
+backups/
+
+# Uploaded/generated documents
+backend/documents/
+backend/uploads/
+uploads/
+documents/
+
+# Node
+node_modules/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Development scratch files
+scratch/
