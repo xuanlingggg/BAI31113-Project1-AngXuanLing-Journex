@@ -2,7 +2,7 @@
 
 ## 1. Project Introduction
 
-Journex is an AI Agentic Accounting System developed as part of Final Year Project I (FYP I). The project aims to automate accounting document processing and reduce manual work in accounting tasks.
+Journex is an AI Agentic Accounting System developed as part of the Project I. The project aims to automate accounting document processing and reduce manual work in accounting tasks.
 
 The system uses four specialised agents to handle different accounting processes:
 
